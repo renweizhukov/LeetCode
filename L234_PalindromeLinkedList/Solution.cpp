@@ -8,6 +8,7 @@
  */
 class Solution 
 {
+    // Reverse a list.
     ListNode* reverseList(ListNode* head)
     {
         ListNode* prev = nullptr;
@@ -32,6 +33,10 @@ public:
             return true;
         }
         
+        // Use two pointers to find the middle node. 
+        // The slow pointer will move forward by one step 
+        // each time while the fast pointer will move 
+        // forward by two steps each time if possible.
         ListNode *slow = head;
         ListNode *fast = head;
         while (fast != nullptr)
@@ -45,7 +50,17 @@ public:
         }
         
         bool res = true;
+        // Split the list into two sublists where "slow" 
+        // is the head of the second sublist. Then reverse 
+        // the second sublist. Note that 
+        // (1) we don't need to disconnect the tail node of
+        // the first sublist with "slow";
+        // (2) if the total number of ListNodes is odd, the 
+        // first sublist contains one more ListNode than the 
+        // second sublist.
         ListNode *newHead = reverseList(slow);
+        
+        // Compare the ListNodes in the two sublists.
         ListNode *firstHalf = head;
         ListNode *secondHalf = newHead;
         while (secondHalf != nullptr)
@@ -60,6 +75,7 @@ public:
             secondHalf = secondHalf->next;
         }
         
+        // Reverse the second sublist to restore the list.
         (void)reverseList(newHead);
         
         return res;
