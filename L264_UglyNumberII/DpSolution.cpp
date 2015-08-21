@@ -32,10 +32,9 @@ public:
             uglyNumbers[i] = min(c2, min(c3, c5));
             int last = uglyNumbers[i];
 
-            // Update the candidates. Since only numbers which are 
-            // greater than last ugly number can be valid candidates 
-            // for next ugly number, we will move forward i2, i3, and 
-            // i5 until c2, c3, and c5 are greater than "last".
+            // Update the candidates. Since only numbers which are             // greater than last ugly number can be valid candidates             // for next ugly number, we will move forward i2, i3, and             // i5 until c2, c3, and c5 are greater than "last". Note 
+            // the following 3 "while" can be replaced by "if" and 
+            // the code is still correct.
             while (c2 <= last)
             {
                 c2 = 2 * uglyNumbers[++i2];
