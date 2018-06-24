@@ -1,2 +1,4 @@
-# LeetCode
-My LeetCode C++ Solutions
+LeetCode
+========
+
+My LeetCode C++ and Python Solutions
